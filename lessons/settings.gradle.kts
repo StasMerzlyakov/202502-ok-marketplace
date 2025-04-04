@@ -15,7 +15,7 @@ pluginManagement {
 }
 
 
-rootProject.name = "marketplace"
+rootProject.name = "lessons"
 
 include("m1")
 
