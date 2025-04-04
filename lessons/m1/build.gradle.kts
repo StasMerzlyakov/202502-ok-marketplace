@@ -1,14 +1,8 @@
 plugins {
-    kotlin("jvm")
-    id("org.jmailen.kotlinter")
+    id("build-jvm")
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
-kotlin {
-    jvmToolchain(21)
-}
 dependencies {
+    implementation(libs.kotlinxXXX.datetimeTestDep) // не требуется, для проверки подключения libs.versions.toml
     testImplementation(kotlin("test"))
 }

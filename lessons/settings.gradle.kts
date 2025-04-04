@@ -1,16 +1,20 @@
-pluginManagement {
-    val kotlinVersion: String by settings
-    val kotlinterVersion: String by settings
-    plugins {
-        kotlin("jvm") version kotlinVersion
-        id("org.jmailen.kotlinter") version kotlinterVersion
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libs") {
+            from(files("../gradle/libs.versions.toml"))
+        }
     }
-
 }
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
+pluginManagement {
+    includeBuild("../plugins")
+    plugins {
+        id("build-jvm") apply false
+        id("build-kmp") apply false
+    }
 }
+
+
 rootProject.name = "marketplace"
 
 include("m1")

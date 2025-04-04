@@ -1,20 +1,4 @@
-plugins {
-    kotlin("jvm") apply false
-    id("org.jmailen.kotlinter") apply false
-}
-
-group = "ru.otus.kotlin.marketplace"
-val projectVersion: String by rootProject.extra
-version = projectVersion
-
 subprojects {
-    repositories {
-        mavenLocal()
-        mavenCentral()
-    }
-    group = rootProject.group
-    version = rootProject.version
-
     configurations.all {
         resolutionStrategy {
             failOnVersionConflict()
