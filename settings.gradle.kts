@@ -15,3 +15,4 @@ rootProject.name = "ok-marketplace-hw-202502"
 
 includeBuild("lessons")
 includeBuild("plugins")
+includeBuild("marketplace")
