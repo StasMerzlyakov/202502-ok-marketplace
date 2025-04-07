@@ -17,3 +17,5 @@ pluginManagement {
 
 rootProject.name = "marketplace"
 
+include(":project")
+
