@@ -1,0 +1,18 @@
+[versions]
+kotlin = "2.1.10"
+kotlinter = "5.0.1"
+
+# BASE
+jvm-compiler = "17"
+jvm-language = "21"
+
+[libraries]
+plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+plugin-kotlinter = { module = "org.jmailen.kotlinter:org.jmailen.kotlinter.gradle.plugin", version.ref = "kotlinter" }
+kotlinxXXX-datetimeTestDep = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.6.1" }
+
+[plugins]
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+
+
