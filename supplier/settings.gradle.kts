@@ -15,7 +15,7 @@ pluginManagement {
 }
 
 
-rootProject.name = "marketplace"
+rootProject.name = "supplier"
 
 include(":project")
 
