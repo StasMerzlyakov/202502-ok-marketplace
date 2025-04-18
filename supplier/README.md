@@ -26,8 +26,9 @@ https://www.figma.com/design/E1UH3sInqlHFuY9bkVDJWV/supplier?node-id=1-6&t=etGlt
 3. DevOps
 4. Архитектура
     1. [ADR](./docs/04-architecture/01-adrs/ADR.md)
-    2. [Описание API](./docs/04-architecture/02-api.md)
-    3. [Компонентная схема](./docs/04-architecture/03-arch.md)
+    2. [C4](./docs/04-architecture/02-c4/C4.md)
+    2. [Описание API](./docs/04-architecture/02-api.md) TODO
+    3. [Компонентная схема](./docs/04-architecture/03-arch.md) TODO
 5. Тесты
 
 # Структура проекта
