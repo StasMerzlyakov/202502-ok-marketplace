@@ -107,8 +107,8 @@ services:
 
   keycloak:
     image: quay.io/keycloak/keycloak:26.1.0
-    #    ports:
-    #      - "8081:8080"
+    ports:
+      - "8081:8080"
     volumes:
       - ./volumes/keycloak/import:/opt/keycloak/data/import
     #      - ./keycloak/standalone.xml:/opt/jboss/keycloak/standalone/configuration/standalone.xml
