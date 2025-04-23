@@ -41,7 +41,8 @@
 - **Источник требования:** ИБ
 - **Описание требования:** Обеспечить защиту от уязвимостей OWASP TOP-10 WEB, OWASP TOP-10 REST.
 - **Параметры:** 
-  - Проверка разрабатываемого ПО по https://github.com/Checkmarx/Kotlin-SCP 
+  - Проверка разрабатываемого ПО по https://github.com/Checkmarx/Kotlin-SCP (то, что подходит для backend)
+  - https://www.kiuwan.com/wp-content/uploads/2024/05/Security-Guide-for-Kotlin-Developers.pdf
   - Регулярная проверка программного обеспечения на актуальные уязвимости по источникам OWASP TOP-10 WEB, OWASP TOP-10 REST.
 - **Приоритет требования:** Высокий.
 
