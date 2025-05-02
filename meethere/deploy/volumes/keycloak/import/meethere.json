@@ -1,7 +1,7 @@
 {
   "id": "97eff3c4-0bb1-42ac-9ca4-1f0e74be98e3",
-  "realm": "supplier",
-  "displayName": "Supplier service",
+  "realm": "meethere",
+  "displayName": "meethere service",
   "displayNameHtml": "",
   "notBefore": 0,
   "defaultSignatureAlgorithm": "RS256",
@@ -51,7 +51,7 @@
     "realm": [
       {
         "id": "d7a152dc-39bc-44f0-aa7c-4c027af41424",
-        "name": "default-roles-supplier",
+        "name": "default-roles-meethere",
         "description": "${role_default-roles}",
         "composite": true,
         "composites": {
@@ -90,7 +90,7 @@
       }
     ],
     "client": {
-      "supplier-service": [],
+      "meethere-service": [],
       "realm-management": [
         {
           "id": "97a80b89-db82-4efb-bdc0-2a6d55146611",
@@ -420,7 +420,7 @@
   ],
   "defaultRole": {
     "id": "d7a152dc-39bc-44f0-aa7c-4c027af41424",
-    "name": "default-roles-supplier",
+    "name": "default-roles-meethere",
     "description": "${role_default-roles}",
     "composite": true,
     "clientRole": false,
@@ -495,13 +495,13 @@
       "clientId": "account",
       "name": "${client_account}",
       "rootUrl": "${authBaseUrl}",
-      "baseUrl": "/realms/supplier/account/",
+      "baseUrl": "/realms/meethere/account/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/realms/supplier/account/*"
+        "/realms/meethere/account/*"
       ],
       "webOrigins": [],
       "notBefore": 0,
@@ -542,13 +542,13 @@
       "clientId": "account-console",
       "name": "${client_account-console}",
       "rootUrl": "${authBaseUrl}",
-      "baseUrl": "/realms/supplier/account/",
+      "baseUrl": "/realms/meethere/account/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/realms/supplier/account/*"
+        "/realms/meethere/account/*"
       ],
       "webOrigins": [],
       "notBefore": 0,
@@ -727,13 +727,13 @@
       "clientId": "security-admin-console",
       "name": "${client_security-admin-console}",
       "rootUrl": "${authAdminUrl}",
-      "baseUrl": "/admin/supplier/console/",
+      "baseUrl": "/admin/meethere/console/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/admin/supplier/console/*"
+        "/admin/meethere/console/*"
       ],
       "webOrigins": [
         "+"
@@ -793,7 +793,7 @@
     },
     {
       "id": "407b74ce-6f6e-4f2b-86f4-fa20670fe8d4",
-      "clientId": "supplier-service",
+      "clientId": "meethere-service",
       "name": "",
       "description": "",
       "rootUrl": "",

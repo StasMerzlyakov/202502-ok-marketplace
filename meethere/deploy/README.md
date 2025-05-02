@@ -24,7 +24,7 @@ docker-compose up
 docker-compose down
 ```
 
-# добавление realm supplier, и users - после изменений не забыть выгрузить настройки
+# добавление realm meethere, и users - после изменений не забыть выгрузить настройки
 http://localhost:8080/admin  (admin:admin; docker-compose.yml)
 
 

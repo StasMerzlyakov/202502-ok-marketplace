@@ -15,7 +15,7 @@ pluginManagement {
 }
 
 
-rootProject.name = "supplier"
+rootProject.name = "meethere"
 
 include(":project")
 

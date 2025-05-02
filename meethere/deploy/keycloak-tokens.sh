@@ -1,10 +1,10 @@
 #!/bin/bash
 
 KCHOST=http://localhost:8080
-REALM=supplier
-CLIENT_ID=supplier-service
-UNAME=supplier-test
-PASSWORD=supplier
+REALM=meethere
+CLIENT_ID=meethere-service
+UNAME=meethere-test
+PASSWORD=meethere
 
 # shellcheck disable=SC2006
 #ACCESS_TOKEN=`curl \
