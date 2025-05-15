@@ -25,8 +25,7 @@
 
 ![Визуальная схема фронтенда](./img/supplier.png)
 
-https://www.figma.com/design/E1UH3sInqlHFuY9bkVDJWV/supplier?node-id=1-6&t=etGltWC8rXDxjPzU-1
-
+https://www.figma.com/design/E1UH3sInqlHFuY9bkVDJWV/meethere?node-id=1-6&t=cFHAkWaDBFYczICZ-1
 ## Документация
 
 1. Маркетинг и аналитика
