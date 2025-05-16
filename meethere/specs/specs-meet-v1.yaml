@@ -1,0 +1,401 @@
+openapi: 3.0.4
+info:
+  title: Meethere ${VERSION_API}
+  description: |-
+    This is a place where organizer and participant meet
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.12
+servers:
+  - url: http://localhost:8080/v1
+tags:
+  - name: meet
+    description: Встреча
+paths:
+  /meet/create:
+    post:
+      tags:
+        - meet
+      summary: Create meet
+      operationId: meetCreate
+      requestBody:
+        description: Request Body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeetCreateRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MeetCreateResponse'
+  /meet/read:
+    post:
+      tags:
+        - meet
+      summary: Read meet
+      operationId: meetRead
+      requestBody:
+        description: Request Body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeetReadRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MeetReadResponse'
+  /meet/update:
+    post:
+      tags:
+        - meet
+      summary: Update meet
+      operationId: meetUpdate
+      requestBody:
+        description: Request Body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeetUpdateRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MeetUpdateResponse'
+
+  /meet/delete:
+    post:
+      tags:
+        - meet
+      summary: Delete meet
+      operationId: meetDelete
+      requestBody:
+        description: Request Body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeetDeleteRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MeetDeleteResponse'
+  /meet/search:
+    post:
+      tags:
+        - meet
+      summary: Search meet.
+      operationId: meetSearch
+      requestBody:
+        description: Request Body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeetSearchRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MeetSearchResponse'
+components:
+  schemas:
+    IRequest:
+      type: object
+      description: Базовый интерфейс для всех запросов
+      properties:
+        requestType:
+          type: string
+          description: Поле-дескриминатор для вычисления типа запроса
+          example: create
+      discriminator:
+        propertyName: requestType
+        mapping:
+          create: '#/components/schemas/MeetCreateRequest'
+          read: '#/components/schemas/MeetReadRequest'
+          update: '#/components/schemas/MeetUpdateRequest'
+          delete: '#/components/schemas/MeetDeleteRequest'
+          search: '#/components/schemas/MeetSearchRequest'
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        group:
+          type: string
+        field:
+          type: string
+        message:
+          type: string
+    ResponseResult:
+      type: string
+      enum:
+        - success
+        - error
+    IResponse:
+      type: object
+      description: Базовый интерфейс для всех ответов
+      properties:
+        responseType:
+          type: string
+          description: Поле-дескриминатор для вычисления типа запроса
+          example: create
+        result:
+          $ref: '#/components/schemas/ResponseResult'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+      discriminator:
+        propertyName: responseType
+        mapping:
+          create: '#/components/schemas/MeetCreateResponse'
+          read: '#/components/schemas/MeetReadResponse'
+          update: '#/components/schemas/MeetUpdateResponse'
+          delete: '#/components/schemas/MeetDeleteResponse'
+          search: '#/components/schemas/MeetSearchResponse'
+    UserId:
+      type: string
+      description: Идентификатор пользователя
+    MeetId:
+      type: string
+      description: Идентификатор объявления
+    MeetLock:
+      type: string
+      description: Версия оптимистичной блокировки
+    Coordinate:
+      type: object
+      description: Координата
+      required:
+        - lat
+        - lng
+      properties:
+        lat:
+          type: number
+          format: float
+          description: Широта
+        long:
+          type: number
+          format: float
+          description: Долгота
+
+
+    #    - место (*)
+    #    - название (*)
+    #    - даты(диапазона) (*)
+    #    - время (*)
+    #    - описание
+    #    - изображение
+    #    - категории (возраст, пол)
+    #    - ссылка на сайт/мессенджер/видео канал и пр.
+    BaseMeet:
+      type: object
+      description: Объект описывает свойства, одинаковые для create и update
+      properties:
+        place:
+          description: Место проведения
+          $ref: '#/components/schemas/Coordinate'
+        title:
+          type: string
+          description: Заголовок объявления
+        date:
+          type: string
+          format: date-time
+        description:
+          type: string
+          description: Описание объявления
+        contact:
+          type: string
+          description: Cсылка на сайт/мессенджер/видео канал и пр.
+
+
+    MeetCreateObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseMeet'
+    MeetCreateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/MeetRequestDebug'
+        - type: object
+          properties:
+            meet:
+              $ref: '#/components/schemas/MeetCreateObject'
+    MeetReadObject:
+      allOf:
+        - type: object
+          properties:
+            id:
+              $ref: '#/components/schemas/MeetId'
+    MeetReadRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/MeetRequestDebug'
+        - type: object
+          properties:
+            meet:
+              $ref: '#/components/schemas/MeetReadObject'
+    MeetUpdateObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseMeet'
+        - type: object
+          properties:
+            id:
+              $ref: '#/components/schemas/MeetId'
+            lock:
+              $ref: '#/components/schemas/MeetLock'
+
+    MeetUpdateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/MeetRequestDebug'
+        - type: object
+          properties:
+            meet:
+              $ref: '#/components/schemas/MeetUpdateObject'
+
+    MeetDeleteObject:
+      allOf:
+        - type: object
+          properties:
+            id:
+              $ref: '#/components/schemas/MeetId'
+            lock:
+              $ref: '#/components/schemas/MeetLock'
+
+    MeetDeleteRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/MeetRequestDebug'
+        - type: object
+          properties:
+            ad:
+              $ref: '#/components/schemas/MeetDeleteObject'
+
+    MeetSearchFilter:
+      type: object
+      description: Набор фильтров для поиска
+      properties:
+        date:
+          type: string
+          format: date
+          description: Дата мероприятия
+        place:
+          description: Место нахождения участника
+          $ref: '#/components/schemas/Coordinate'
+
+    MeetSearchRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/MeetRequestDebug'
+        - type: object
+          properties:
+            adFilter:
+              $ref: '#/components/schemas/MeetSearchFilter'
+
+    MeetResponseObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseMeet'
+        - type: object
+          description: Объект, который возвращается в ответе бэкенда
+          properties:
+            id:
+              $ref: '#/components/schemas/MeetId'
+            ownerId:
+              $ref: '#/components/schemas/UserId'
+            lock:
+              $ref: '#/components/schemas/MeetLock'
+
+    MeetResponseSingle:
+      allOf:
+        - type: object
+          description: Ответ с одним объектом объявления
+          properties:
+            ad:
+              $ref: '#/components/schemas/MeetResponseObject'
+
+    MeetResponseMulti:
+      allOf:
+        - type: object
+          description: Список найденных объектов
+          properties:
+            ads:
+              type: array
+              items:
+                $ref: '#/components/schemas/MeetResponseObject'
+
+    MeetCreateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/MeetResponseSingle'
+
+    MeetReadResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/MeetResponseSingle'
+
+    MeetUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/MeetResponseSingle'
+
+    MeetDeleteResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/MeetResponseSingle'
+
+    MeetSearchResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/MeetResponseMulti'
+
+
+    # STUBS ======================
+    MeetRequestDebugMode:
+      type: string
+      enum:
+        - prod
+        - test
+        - stub
+
+    MeetRequestDebug:
+      type: object
+      properties:
+        debug:
+          $ref: '#/components/schemas/MeetDebug'
+
+    MeetDebug:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MeetRequestDebugMode'
+        stub:
+          $ref: '#/components/schemas/MeetRequestDebugStubs'
+
+    MeetRequestDebugStubs:
+      type: string
+      description: Перечисления всех стабов
+      enum:
+        - success
+        - notFound
+        - badId
+        - badTitle
+        - badDescription
+        - badVisibility
+        - cannotDelete
+        - badSearchString
