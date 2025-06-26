@@ -13,6 +13,5 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 rootProject.name = "ok-marketplace-hw-202502"
 
-includeBuild("lessons")
 includeBuild("plugins")
 includeBuild("meethere")

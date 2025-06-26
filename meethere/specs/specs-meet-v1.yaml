@@ -122,7 +122,7 @@ components:
       properties:
         requestType:
           type: string
-          description: Поле-дескриминатор для вычисления типа запроса
+          description: Поле-дескриминатор для вычисления типа запроса(с enum возникают проблемы)
           example: create
       discriminator:
         propertyName: requestType
@@ -154,7 +154,7 @@ components:
       properties:
         responseType:
           type: string
-          description: Поле-дескриминатор для вычисления типа запроса
+          description: Поле-дескриминатор для вычисления типа ответа
           example: create
         result:
           $ref: '#/components/schemas/ResponseResult'
@@ -200,7 +200,7 @@ components:
     #    - название (*)
     #    - даты(диапазона) (*)
     #    - время (*)
-    #    - описание
+    #    - описание (*)
     #    - изображение
     #    - категории (возраст, пол)
     #    - ссылка на сайт/мессенджер/видео канал и пр.
@@ -389,7 +389,7 @@ components:
 
     MeetRequestDebugStubs:
       type: string
-      description: Перечисления всех стабов
+      description: Перечисления всех возможных типов ошибок
       enum:
         - success
         - notFound
@@ -399,3 +399,4 @@ components:
         - badVisibility
         - cannotDelete
         - badSearchString
+        - wrongLockVersion
