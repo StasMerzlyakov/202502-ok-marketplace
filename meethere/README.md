@@ -19,13 +19,13 @@
 * для участников - упросить поиск информации, иметь возможность подбирать по разным фильтрам подходящие для себя события  
 * для организаторов - иметь простую возможность предоставить информацию о себе, привлечь участников/клиентов  
 
+
 ## Визуальная схема фронтенда
 
-![](https://gde-chto.ru)
+![Визуальная схема фронтенда]https://www.figma.com/design/E1UH3sInqlHFuY9bkVDJWV/meethere?node-id=1-6&t=cFHAkWaDBFYczICZ-1
 
-![Визуальная схема фронтенда](./img/supplier.png)
+![Иконка](./img/supplier.png)
 
-https://www.figma.com/design/E1UH3sInqlHFuY9bkVDJWV/meethere?node-id=1-6&t=cFHAkWaDBFYczICZ-1
 ## Документация
 
 1. Маркетинг и аналитика
