@@ -17,4 +17,4 @@ pluginManagement {
 rootProject.name = "meethere"
 
 include(":meethere-api-v1-jackson")
-
+include(":meethere-common")
